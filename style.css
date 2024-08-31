@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    background-color: #000;
+}
+
+/****************btn one hover css******************/
+.btn-one{
+    display: block;
+    width: 250px;
+    height: 55px;
+    margin: 150px 700px;
+    margin-bottom: 50px;
+    padding: 12px 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    position: relative;
+    border-radius: 7px;
+    font-size: 24px;
+    font-weight: 700;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.btn-one::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    border-radius: 7px;
+    left: 0;
+    top: 0;
+}
+.btn-one::before{
+    content: "";
+    background: linear-gradient(45deg,
+    #46577a,#2f4858,#7bb54d,#c78a33,
+    #00ffd5,#005b8a,#007f6e,#00a7ff);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out ;
+    opacity: 0;
+    border-radius: 7px;
+}
+
+@keyframes  glowing {
+    0%{background-position: 0 0;}
+    50%{background-position: 400% 0;}
+    100%{background-position: 0 0;}
+}
+.btn-one:hover::before{
+    opacity: 1;
+}
+.btn-one:active::after{
+    background: transparent;
+}
+.btn-one:active{
+    color: #000;
+}
+/****************btn twoo hover 3D css******************/
+
+.btn-twoo{
+    display: block;
+    width: 250px;
+    height: 55px;
+    margin: 150px 700px;
+    margin-bottom: 50px;
+    padding: 12px 30px;
+    outline: none;
+    border: 2px solid #ff7e29;
+    color: #ff7e29;
+    background: #000;
+    position: relative;
+    border-radius: 7px;
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 0 0 .20em #fff7ff,
+    0 0 .30em #ff7e29;
+    box-shadow: inset 0 0 .5em #ff7e29,
+    0 0 .5em #ff7e29;
+    z-index: 0;
+}
+
+.btn-twoo::before{
+    content: "";
+    position: absolute;
+    top: 140%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff7e29;
+    transform: perspective(0.2em)
+    rotateX(10deg)
+    scale(1.3, 0.40);
+    filter: blur(0.5em);
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 100ms linear;
+}
+
+.btn-twoo::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ff7e29;
+    box-shadow: 0 0 2em #ff7e29;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 100ms linear;
+   
+}
+.btn-twoo:hover::after{
+    opacity: 1;
+    
+}
+.btn-twoo:hover, .btn-twoo:focus{
+    color: #fff;
+}
+.btn-twoo:hover::before{
+    opacity: 0.8;
+}
